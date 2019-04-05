@@ -36,7 +36,7 @@ cd TeleKiller
 pip install -r requirements.txt
 python TeleKiller.py
 ```
-## Dependency
+## Dependency :
 
 - [x] python 2.7
 - [x] pyHook
@@ -63,4 +63,6 @@ python TeleKiller.py
 
 ### Thanks to
     Ashkan Moghaddas
+    Milad Ranjbar
     Behzad
+    MrQadir
