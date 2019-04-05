@@ -15,7 +15,7 @@
 ```
 
 ## TeleKiller
-A Tools Session Hijacking And Stealer Local passcode Windows Telegram
+A Tools Session Hijacking And Stealer Local passcode Telegram Windows
 
 
 
