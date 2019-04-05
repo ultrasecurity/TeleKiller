@@ -37,6 +37,9 @@ pip install -r requirements.txt
 python TeleKiller.py
 ```
 
+## ScreenShot
+![Capture](https://user-images.githubusercontent.com/34939571/55632574-da127400-57cf-11e9-9c80-3916e64981b1.PNG)
+
 
 <h2>📧 Contact</h2>
 
