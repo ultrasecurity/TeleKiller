@@ -21,6 +21,8 @@ A Tools Session Hijacking And Stealer Local passcode Telegram Windows
 
 ## Features :
 
+- [x] Session Hijacking 
+- [x] Stealer Local Passcode
 - [x] Keylogger
 - [x] Shell 
 - [x] Bypass 2 Step Verification
@@ -44,7 +46,7 @@ python TeleKiller.py
 
 
 ## ScreenShot
-![photo_2019-04-05_19-11-52](https://user-images.githubusercontent.com/34939571/55635732-abe46280-57d6-11e9-9d01-c3b8d674b957.jpg)
+![Capture](https://user-images.githubusercontent.com/34939571/55632574-da127400-57cf-11e9-9c80-3916e64981b1.PNG)
 
 
 ## Video Tutorial
