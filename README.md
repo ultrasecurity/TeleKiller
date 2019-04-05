@@ -36,8 +36,6 @@ cd TeleKiller
 pip install -r requirements.txt
 python TeleKiller.py
 ```
-
-## 
 - [x] python 2.7
 - [x] pyHook
 - [x] pywin32
