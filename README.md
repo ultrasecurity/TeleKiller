@@ -49,7 +49,6 @@ python TeleKiller.py
 
 ## Video Tutorial
 - [+] Youtube : https://www.youtube.com/watch?v=MTaM1YX8QsE
-- [+] Aparat  : https://www.youtube.com/watch?v=MTaM1YX8QsE 
 
 
 ## Operating Systems Tested
@@ -69,7 +68,5 @@ python TeleKiller.py
 
 
 ### Thanks to
-    Ashkan Moghaddas
     Milad Ranjbar
-    Behzad
     MrQadir
