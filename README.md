@@ -52,6 +52,13 @@ python TeleKiller.py
 - [+] Aparat  : https://www.youtube.com/watch?v=MTaM1YX8QsE 
 
 
+## Operating Systems Tested
+
+- Windows 10
+- Windows 8.1
+- Windows 8
+- Windows 7
+
 
 <h2>📧 Contact</h2>
 
