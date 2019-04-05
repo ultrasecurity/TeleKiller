@@ -26,10 +26,11 @@ Abilitys :
 
 
 
-## How to Install
+## Installation [Windows ](https://wikipedia.org/wiki/Microsoft_Windows)[![alt tag](http://icons.iconarchive.com/icons/tatice/cristal-intense/32/Windows-icon.png)](https://fr.wikipedia.org/wiki/Microsoft_Windows)
 
 ```
 git clone https://github.com/ultrasecurity/TeleKiller.git
 cd TeleKiller
 pip install -r requirements.txt
+python TeleKiller.py
 ```
