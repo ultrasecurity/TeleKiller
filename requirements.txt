@@ -1,0 +1,8 @@
+altgraph
+colorama
+dis3
+future
+macholib
+pefile
+pywin32-ctypes
+pyinstaller
