@@ -57,6 +57,4 @@ python TeleKiller.py
 
 ### Thanks to
     Ashkan Moghaddas
-    Milad Ranjbar 
-    MrQadir
     Behzad
