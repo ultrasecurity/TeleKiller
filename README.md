@@ -46,7 +46,8 @@ python TeleKiller.py
 
 
 ## ScreenShot
-![Capture](https://user-images.githubusercontent.com/34939571/55632574-da127400-57cf-11e9-9c80-3916e64981b1.PNG)
+![29](https://user-images.githubusercontent.com/34939571/55636965-48a7ff80-57d9-11e9-8a65-f4023358830d.jpg)
+
 
 
 ## Video Tutorial
