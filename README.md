@@ -37,6 +37,11 @@ pip install -r requirements.txt
 python TeleKiller.py
 ```
 
+## Video Tutorial
+Youtube : https://www.youtube.com/watch?v=MTaM1YX8QsE
+Aparat  : 
+
+
 ## ScreenShot
 ![Capture](https://user-images.githubusercontent.com/34939571/55632574-da127400-57cf-11e9-9c80-3916e64981b1.PNG)
 
@@ -47,3 +52,10 @@ python TeleKiller.py
 - Channel Telegram : https://t.me/UltraSecurity
 
 <hr>
+
+
+### Thanks to
+    Ashkan Moghaddas
+    Milad Ranjbar 
+    MrQadir
+    Behzad
