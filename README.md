@@ -51,7 +51,7 @@ python TeleKiller.py
 
 
 ## Video Tutorial
-- [+] Youtube : https://www.youtube.com/watch?v=MTaM1YX8QsE
+- [+] Youtube : https://youtu.be/Ugz1GSlTZyc
 
 
 ## Operating Systems Tested
