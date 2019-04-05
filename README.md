@@ -19,7 +19,7 @@ A Tools Session Hijacking And Stealer Local passcode Telegram Windows
 
 
 
-features :
+## Features :
 
 - [x] Keylogger
 - [x] Shell 
@@ -36,6 +36,8 @@ cd TeleKiller
 pip install -r requirements.txt
 python TeleKiller.py
 ```
+## Dependency
+
 - [x] python 2.7
 - [x] pyHook
 - [x] pywin32
