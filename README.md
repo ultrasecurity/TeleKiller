@@ -75,3 +75,4 @@ python TeleKiller.py
 ### Thanks to
     Milad Ranjbar
     MrQadir
+    Abolfazl Hajizade
