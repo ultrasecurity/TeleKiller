@@ -10,7 +10,7 @@ def download_tdata(client,file_save):
     try:
         data_file=client.recv(1024)
     except:
-        print Back.BLUE+"\nSession Closed\n"
+        print(Back.BLUE+"\nSession Closed\n") 
         return False
     else:
         while(data_file):
